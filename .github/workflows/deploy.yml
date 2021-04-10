@@ -1,0 +1,37 @@
+name: deploy
+on:
+  push:
+    tags: [ deploy-* ]
+env:
+  RUN_REGION: europe-west1
+  SERVICE_NAME: pypi
+
+jobs:
+  setup-build-deploy:
+    name: Setup, Build, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    # Downloads a copy of the code in your repository before running CI tests
+    - name: Checkout
+      uses: actions/checkout@v2
+    # Setup gcloud CLI - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        project_id: ${{ secrets.PROJECT_ID }}
+    # Build and push image to Google Container Registry
+    - name: Build
+      working-directory: ./api
+      run: |-
+        gcloud builds submit \
+          --quiet \
+          --tag "gcr.io/${{ secretsenv.PROJECT_ID }}/${{ env.SERVICE_NAME }}:$GITHUB_SHA"
+    # Deploy image to Cloud Run
+    - name: Deploy
+      run: |-
+        gcloud run deploy "${{ env.SERVICE_NAME }}" \
+          --quiet \
+          --image "gcr.io/${{ secrets.PROJECT_ID }}/${{ env.SERVICE_NAME }}:$GITHUB_SHA" \
+          --platform "managed" \
+          --allow-unauthenticated \
+          --region ${{ env.RUN_REGION }}
