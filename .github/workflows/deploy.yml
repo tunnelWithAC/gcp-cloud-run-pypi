@@ -21,7 +21,6 @@ jobs:
         project_id: ${{ secrets.PROJECT_ID }}
     # Build and push image to Google Container Registry
     - name: Build
-      working-directory: ./api
       run: |-
         gcloud builds submit \
           --quiet \
