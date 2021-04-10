@@ -31,6 +31,7 @@ jobs:
         gcloud run deploy "${{ env.SERVICE_NAME }}" \
           --quiet \
           --image "gcr.io/${{ secrets.PROJECT_ID }}/${{ env.SERVICE_NAME }}:$GITHUB_SHA" \
+          --port 80\
           --platform "managed" \
           --allow-unauthenticated \
           --region ${{ env.RUN_REGION }}
