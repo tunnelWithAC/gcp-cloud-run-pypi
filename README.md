@@ -1,38 +1,51 @@
+## Google Cloud Run PyPi registry
 
+This repo contains code to build and deploy a PyPi registry to Google Cloud Run.
 
-Create compute engine instance
+This project is an early stage proof of concept for how a private registry can be easily deployed and updated using Github Actions.
 
-`gcloud compute instances create pypi-registry-example --zone=europe-west2-c --machine-type=e2-micro`
-
-SSH into CE instance
-
-`gcloud beta compute ssh --zone "europe-west2-c" "pypi-registry-example"  --project "conall-sandbox"`
-
-
-Inside your CE
+### How to build a package
+Based on instructions from (here)[https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine]
+See `packages/my_example_package` for an example of how to write `__init__.py` and `setup.py`
 
 ```
-sudo apt-get update
-sudo apt-get install python3-pip
-pip3 install pypiserver
-
-mkdir ~/packages
-cd ~/packages/
-mkdir conall-example && touch conall-example/__init__.py conall-example/hello_world.py
-
-export PATH=$PATH:~/.local/bin
-pypi-server -p 8080 ~/packages
-```
-
-
-
-pip search --index http://localhost:80 conall
-pip install --extra-index http://localhost:80 conall-example
-
-
-https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine
-
+mkdir packages/my_new_package
+cd packages/my_new_package
+touch __init__.py setup.py <your_file_name>.py
+# add your code  to <your_file_name>.py
+# import your modules in __init__.py
+# fill in your setup.py
 python3 setup.py sdist bdist_wheel
+```
 
+### Run locally
+```
+docker build -t pypi .
+docker run -p 80:80  --name pypi --rm -it pypi
+```
 
-`docker build -t pypi . && docker run -80:80  --name pypi --rm -it pypi`
+### How to deploy to Google Cloud Run
+
+```
+gcloud builds submit --tag "gcr.io/$PROJECT_ID/pypi"
+
+gcloud run deploy "pypi" --quiet \
+    --image "gcr.io/$PROJECT/pypi" \
+    --port 80 \
+    --platform "managed" \
+    --allow-unauthenticated \
+    --region europe-west1
+```
+
+Get the url of your service by running and selecting option 1 - Cloud Run (fully managed) 
+
+```
+gcloud run services list
+```
+
+Test your connection to the registry
+
+```
+REGISTRY_URL=https://<UNIQUE_SERVICE_IDENTIFIER>.a.run.app
+pip search --index $REGISTRY_URL example
+```
