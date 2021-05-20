@@ -4,3 +4,5 @@ gcp_util.egg-info/SOURCES.txt
 gcp_util.egg-info/dependency_links.txt
 gcp_util.egg-info/requires.txt
 gcp_util.egg-info/top_level.txt
+utils/__init__.py
+utils/create_pubsub.py

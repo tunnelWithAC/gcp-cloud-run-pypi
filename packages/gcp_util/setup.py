@@ -15,6 +15,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.6',
     url='https://github.com/tunnelWithAC/gcp-cloud-run-pypi/tree/master/packages/gcp_util'
 )
