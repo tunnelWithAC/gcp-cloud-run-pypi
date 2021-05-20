@@ -2,8 +2,8 @@ import setuptools
 
 setuptools.setup(
     name="gcp-util",
-    version="0.0.2",
-    author="Example Author",
+    version="0.0.3",
+    author="Conall Daly",
     author_email="conalldalydev@:gmail.com",
     description="Google Cloud Platform Utility Package",
     packages=setuptools.find_packages(),
