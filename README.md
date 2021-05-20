@@ -5,7 +5,7 @@ This repo contains code to build and deploy a PyPi registry to Google Cloud Run.
 This project is an early stage proof of concept for how a private registry can be easily deployed and updated using Github Actions.
 
 ### How to build a package
-Based on instructions from (here)[https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine]
+Based on instructions from [here](https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine)
 See `packages/my_example_package` for an example of how to write `__init__.py` and `setup.py`
 
 ```
@@ -49,6 +49,9 @@ Test your connection to the registry
 REGISTRY_URL=https://<UNIQUE_SERVICE_IDENTIFIER>.a.run.app
 pip search --index $REGISTRY_URL example
 ```
+<<<<<<< HEAD
 
 ### Useful Resources
 * (Documentation on how to add external dependencies to Python Packaging)[https://python-packaging.readthedocs.io/en/latest/dependencies.html]
+=======
+>>>>>>> cb0e44f812c0cac0ac86e4a179c262e897f6ff2a
