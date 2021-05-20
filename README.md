@@ -49,9 +49,7 @@ Test your connection to the registry
 REGISTRY_URL=https://<UNIQUE_SERVICE_IDENTIFIER>.a.run.app
 pip search --index $REGISTRY_URL example
 ```
-<<<<<<< HEAD
 
 ### Useful Resources
+* (Python Packages Documentation)[https://python-packaging.readthedocs.io/en/latest/minimal.html#]
 * (Documentation on how to add external dependencies to Python Packaging)[https://python-packaging.readthedocs.io/en/latest/dependencies.html]
-=======
->>>>>>> cb0e44f812c0cac0ac86e4a179c262e897f6ff2a

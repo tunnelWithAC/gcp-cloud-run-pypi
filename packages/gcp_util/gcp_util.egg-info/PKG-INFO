@@ -2,7 +2,7 @@ Metadata-Version: 1.2
 Name: gcp-util
 Version: 0.0.1
 Summary: Google Cloud Platform Utility Package
-Home-page: UNKNOWN
+Home-page: https://github.com/tunnelWithAC/gcp-cloud-run-pypi/tree/master/packages/gcp_util
 Author: Example Author
 Author-email: conalldalydev@:gmail.com
 License: UNKNOWN

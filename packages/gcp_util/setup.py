@@ -1,8 +1,8 @@
 import setuptools
 
 setuptools.setup(
-    name="gcp_util",
-    version="0.0.1",
+    name="gcp-util",
+    version="0.0.2",
     author="Example Author",
     author_email="conalldalydev@:gmail.com",
     description="Google Cloud Platform Utility Package",
@@ -16,4 +16,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.7',
+    url='https://github.com/tunnelWithAC/gcp-cloud-run-pypi/tree/master/packages/gcp_util'
 )
