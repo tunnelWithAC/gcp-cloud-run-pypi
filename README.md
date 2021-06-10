@@ -1,4 +1,6 @@
 ## Google Cloud Run PyPi registry
+[Medium Article](https://conalldalydev.medium.com/how-to-build-a-serverless-pypi-python-package-registry-on-google-cloud-platform-9aca45bdf80e)
+
 
 This repo contains code to build and deploy a PyPi registry to Google Cloud Run.
 
@@ -115,6 +117,18 @@ Test your connection to the registry
 ```
 REGISTRY_URL=https://<UNIQUE_SERVICE_IDENTIFIER>.a.run.app
 pip search --index $REGISTRY_URL example
+```
+
+**I need to clean this section**
+
+Once you have deployed your registry using Google Cloud Run you can access the registry by specifying the registry url, e.g.
+pip search --index https://pypi-z735tntdrq-ew.a.run.app example
+Or by adding an extra index url to your local pip configuration.
+Create a ~/.pip/pip.conf if one does not already exist and add the url for your registry
+
+```buildoutcfg
+[global]
+extra-index-url = https://pypi-z735tntdrq-ew.a.run.app/
 ```
 
 ### Useful Resources
