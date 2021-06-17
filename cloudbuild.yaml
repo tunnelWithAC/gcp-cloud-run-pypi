@@ -2,5 +2,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/conall-sandbox/pypi', '.']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  args: ['gsutil', 'ls', 'word_count_example_test']
+  args: ['gsutil', 'ls', 'gs://word_count_example_test']
   
