@@ -1,4 +1,7 @@
 steps:
+- name: gcr.io/cloud-builders/gcloud:latest
+  entrypoint: "ls"
+  args: ["-lah","/workspace"]
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args: ['gsutil', '-m', 'rsync', '-d', '-r', 'gs://conall-sandbox-packages', 'packages/']
 - name: 'gcr.io/cloud-builders/docker'
