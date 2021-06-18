@@ -17,4 +17,4 @@ steps:
   args: ['run', 'deploy', 'pypi', '--image', 'gcr.io/conall-sandbox/pypi', '--port', '80', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 # Docs on why this is needed: https://cloud.google.com/build/docs/build-config#images
 images:
-- gcr.io/PROJECT_ID/IMAGE
+- gcr.io/conall-sandbox/pypi
