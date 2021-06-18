@@ -1,8 +1,0 @@
-setup.py
-gcp_util/__init__.py
-gcp_util/create_pubsub.py
-gcp_util.egg-info/PKG-INFO
-gcp_util.egg-info/SOURCES.txt
-gcp_util.egg-info/dependency_links.txt
-gcp_util.egg-info/requires.txt
-gcp_util.egg-info/top_level.txt
