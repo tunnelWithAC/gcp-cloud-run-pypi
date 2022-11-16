@@ -1,10 +1,11 @@
 ## Google Cloud Run PyPi registry
-[Medium Article](https://conalldalydev.medium.com/how-to-build-a-serverless-pypi-python-package-registry-on-google-cloud-platform-9aca45bdf80e)
-
-
 This repo contains code to build and deploy a PyPi registry to Google Cloud Run.
 
 This project is an early stage proof of concept for how a private registry can be easily deployed and updated using Github Actions.
+
+The build and deployment trigger has been changed to trigger on update to a Google Cloud storage bucket in a separate private project that allows a team of engineers to privately build and share packages for internal tools.
+
+This project and others that I have worked on are covered in my [Medium blog](https://conalldalydev.medium.com/)
 
 ### How to build a package
 Based on instructions from [here](https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine)
