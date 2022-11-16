@@ -5,10 +5,10 @@ This project is an early stage proof of concept for how a private registry can b
 
 The build and deployment trigger has been changed to trigger on update to a Google Cloud storage bucket in a separate private project that allows a team of engineers to privately build and share packages for internal tools.
 
-This project and others that I have worked on are covered in my [Medium blog](https://conalldalydev.medium.com/)
+This project and others that I have worked on are covered in my [Medium blog](https://conalldalydev.medium.com/).
 
 ### How to build a package
-Based on instructions from [here](https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine)
+(Based on instructions from [here](https://docs.gitlab.com/ee/user/packages/pypi_repository/#install-pip-and-twine))
 
 See `packages/gcp_util` for an example of how to write `__init__.py` and `setup.py`
 
